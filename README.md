@@ -30,6 +30,17 @@ By changing this number you change the amount of memory zfs will use for its
 store data it needs in fast RAM instead of needing to get it off the disk.
 
 ### zfs_arc_memory_throttle_disable
+**Value Type:** A boolean, 0 or 1
+
+**Default Value:** 0 after 0.6.1
+
+**Tuning:**
+
+This boolean was used to enable or disable improvements made to the
+arc_memory_throttle so it could be tested by interested parties prior to it
+being the default. The only version where you should worry abut setting this
+would be 0.6.0 and you would want to set it to 0.
+
 ### zfs_arc_meta_limit
 ### zfs_arc_meta_prune
 ### zfs_arc_min
