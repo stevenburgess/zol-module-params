@@ -42,6 +42,20 @@ being the default. The only version where you should worry abut setting this
 would be 0.6.0 and you would want to set it to 0.
 
 ### zfs_arc_meta_limit
+**Value Type:** Number of bytes
+
+**Default Value:** 1/4 of zfs_arc_max
+
+**Tuning:**
+
+By changing this number you change the amount of ARC memory that will be used
+for metadata. Metadata is anything that is not actual data asked for, for
+example block checksums and tree traversal data. This tunable is unique to ZoL
+other OpenZFS may not place a limit on metadata (so zfs_arc_meta_limit =
+zfs_arc_max). Check /proc/spl/kstat/zfs/arcstats/arc_meta_used vs
+/proc/spl/kstat/zfs/arcstats/arc_meta_limit to see if you should consider
+increasing this value.
+
 ### zfs_arc_meta_prune
 ### zfs_arc_min
 ### zfs_arc_min_prefetch_lifespan
