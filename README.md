@@ -16,6 +16,19 @@
 ### zfetch_min_sec_reap
 ### zfs_arc_grow_retry
 ### zfs_arc_max
+---
+**Value Type:** Number of bytes
+
+**Default Value:** Half of system ram
+
+**Tuning:**
+
+By changing this number you change the amount of memory zfs will use for its
+[Adaptive Replacement Cache]
+(http://open-zfs.org/wiki/Performance_tuning#Adaptive_Replacement_Cache)
+. Increasing this number will help read speeds from your pools, as zfs will
+store data it needs in fast RAM instead of needing to get it off the disk.
+
 ### zfs_arc_memory_throttle_disable
 ### zfs_arc_meta_limit
 ### zfs_arc_meta_prune
